@@ -10,8 +10,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   var isUser = prefs.getString('user');
-  print('isUser');
-  print(isUser);
   runApp(MyApp(
     isUser: isUser,
   ));

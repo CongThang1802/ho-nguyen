@@ -21,7 +21,7 @@ class Body extends StatelessWidget {
                         ? SizeConfig.screenHeight! * 0.04
                         : 0),
                 Text(
-                  "Chào Mừng Trở Lại",
+                  "Đăng Nhập",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: getProportionateScreenWidth(28),

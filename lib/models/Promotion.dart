@@ -1,35 +1,31 @@
 class Promotion {
-  int? storeid;
-  int? catid;
-  String? title;
-  String? hometext;
-  String? detailtext;
-  String? image1;
-  String? image2;
-  int? active;
-  int? weight;
+  final int storeid, active, catid, weight;
+  final String title, hometext, detailtext, image1, image2;
 
   Promotion(
-      {this.storeid,
-      this.catid,
-      this.title,
-      this.hometext,
-      this.detailtext,
-      this.image1,
-      this.image2,
-      this.active,
-      this.weight});
+      {required this.storeid,
+      required this.catid,
+      required this.title,
+      required this.hometext,
+      required this.detailtext,
+      required this.image1,
+      required this.image2,
+      required this.active,
+      required this.weight});
 
-  Promotion.fromJson(Map<String, dynamic> json) {
-    storeid = json['storeid'];
-    catid = json['catid'];
-    title = json['title'];
-    hometext = json['hometext'];
-    detailtext = json['detailtext'];
-    image1 = json['image1'];
-    image2 = json['image2'];
-    active = json['active'];
-    weight = json['weight'];
+  factory Promotion.fromJson(Map<String, dynamic> json) {
+    print(json);
+    return Promotion(
+      storeid: json['storeid'],
+      catid: json['catid'],
+      title: json['title'],
+      hometext: json['hometext'],
+      detailtext: json['detailtext'],
+      image1: json['image1'],
+      image2: json['image2'],
+      active: json['active'],
+      weight: json['weight'],
+    );
   }
 
   Map<String, dynamic> toJson() {
