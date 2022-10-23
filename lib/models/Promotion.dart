@@ -14,7 +14,6 @@ class Promotion {
       required this.weight});
 
   factory Promotion.fromJson(Map<String, dynamic> json) {
-    print(json);
     return Promotion(
       storeid: json['storeid'],
       catid: json['catid'],

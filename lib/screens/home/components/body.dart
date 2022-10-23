@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:shop_app/models/News.dart';
+import 'package:shop_app/services/fetchNews.dart';
 
 import '../../../size_config.dart';
 // import 'categories.dart';
@@ -46,7 +48,29 @@ class Body extends StatelessWidget {
               // Categories(),
               SpecialOffers(),
               SizedBox(height: getProportionateScreenWidth(40)),
-              PopularProducts(),
+              FutureBuilder(
+                future: fetchNewss(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      print("error :  ${snapshot.error}");
+                      return Center(
+                          child: Image.network(
+                              "https://media0.giphy.com/media/y1ZBcOGOOtlpC/giphy.gif?cid=ecf05e47xwurzv5bjceyazt6c1teu6f0ob20zn0u8m7ms430&rid=giphy.gif&ct=g"));
+                    } else if (snapshot.hasData) {
+                      final data = snapshot.data as List<News>;
+                      print(data);
+                      return PopularProducts(
+                        news: data,
+                      );
+                    }
+                  }
+                  return Center(
+                      child: Image.network(
+                          "https://media0.giphy.com/media/y1ZBcOGOOtlpC/giphy.gif?cid=ecf05e47xwurzv5bjceyazt6c1teu6f0ob20zn0u8m7ms430&rid=giphy.gif&ct=g"));
+                },
+              ),
+              // PopularProducts(),
               SizedBox(height: getProportionateScreenWidth(30)),
             ],
           ),

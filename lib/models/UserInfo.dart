@@ -1,62 +1,64 @@
 class UserInfo {
-  int? userid;
-  int? groupId;
-  String? username;
-  String? email;
-  String? firstName;
-  String? lastName;
-  String? gender;
-  String? photo;
-  int? birthday;
-  String? sig;
-  int? regdate;
-  int? viewMail;
-  int? remember;
-  int? lastUpdate;
-  int? idsite;
-  int? passCreationTime;
-  int? passResetRequest;
-  int? emailVerificationTime;
+  final int userid;
+  final int groupId;
+  final String username;
+  final String email;
+  final String firstName;
+  final String lastName;
+  final String gender;
+  final String photo;
+  final int birthday;
+  final String sig;
+  final int regdate;
+  final int viewMail;
+  final int remember;
+  final int lastUpdate;
+  final int idsite;
+  final int passCreationTime;
+  final int passResetRequest;
+  final int emailVerificationTime;
 
   UserInfo(
-      {this.userid,
-      this.groupId,
-      this.username,
-      this.email,
-      this.firstName,
-      this.lastName,
-      this.gender,
-      this.photo,
-      this.birthday,
-      this.sig,
-      this.regdate,
-      this.viewMail,
-      this.remember,
-      this.lastUpdate,
-      this.idsite,
-      this.passCreationTime,
-      this.passResetRequest,
-      this.emailVerificationTime});
+      {required this.userid,
+      required this.groupId,
+      required this.username,
+      required this.email,
+      required this.firstName,
+      required this.lastName,
+      required this.gender,
+      required this.photo,
+      required this.birthday,
+      required this.sig,
+      required this.regdate,
+      required this.viewMail,
+      required this.remember,
+      required this.lastUpdate,
+      required this.idsite,
+      required this.passCreationTime,
+      required this.passResetRequest,
+      required this.emailVerificationTime});
 
-  UserInfo.fromJson(Map<String, dynamic> json) {
-    userid = json['userid'];
-    groupId = json['group_id'];
-    username = json['username'];
-    email = json['email'];
-    firstName = json['first_name'];
-    lastName = json['last_name'];
-    gender = json['gender'];
-    photo = json['photo'];
-    birthday = json['birthday'];
-    sig = json['sig'];
-    regdate = json['regdate'];
-    viewMail = json['view_mail'];
-    remember = json['remember'];
-    lastUpdate = json['last_update'];
-    idsite = json['idsite'];
-    passCreationTime = json['pass_creation_time'];
-    passResetRequest = json['pass_reset_request'];
-    emailVerificationTime = json['email_verification_time'];
+  factory UserInfo.fromJson(Map<String, dynamic> json) {
+    return UserInfo(
+      userid: json['userid'],
+      groupId: json['group_id'],
+      username: json['username'],
+      email: json['email'],
+      firstName: json['first_name'],
+      lastName: json['last_name'],
+      gender: json['gender'],
+      photo: json['photo'],
+      birthday: json['birthday'],
+      sig: json['sig'],
+      regdate: json['regdate'],
+      viewMail: json['view_mail'],
+      remember: json['remember'],
+      lastUpdate: json['last_update'],
+      idsite: json['idsite'],
+      passCreationTime: json['pass_creation_time'],
+      passResetRequest: json['pass_reset_request'],
+      emailVerificationTime: json['email_verification_time'],
+    );
   }
 
   Map<String, dynamic> toJson() {

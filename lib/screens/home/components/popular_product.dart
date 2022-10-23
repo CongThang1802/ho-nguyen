@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/product_card.dart';
+import 'package:shop_app/models/News.dart';
 import 'package:shop_app/models/Product.dart';
 
 import '../../../size_config.dart';
 import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
+  const PopularProducts({
+    required this.news,
+  });
+
+  final List<News> news;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,10 +27,9 @@ class PopularProducts extends StatelessWidget {
           child: Row(
             children: [
               ...List.generate(
-                demoProducts.length,
+                news.length,
                 (index) {
-                  if (demoProducts[index].isPopular)
-                    return ProductCard(product: demoProducts[index]);
+                  if (news[index].id > 0) return ProductCard(news: news[index]);
 
                   return SizedBox
                       .shrink(); // here by default width and height is 0

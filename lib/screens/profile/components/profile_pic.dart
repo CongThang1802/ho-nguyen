@@ -4,7 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 class ProfilePic extends StatelessWidget {
   const ProfilePic({
     Key? key,
+    required this.img,
   }) : super(key: key);
+  final String img;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,8 @@ class ProfilePic extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           CircleAvatar(
-            backgroundImage: NetworkImage(
-                "https://www.tapdoanhonguyen.com/uploads//users//nth_r3te92z1_1.jpg"),
+            backgroundImage:
+                NetworkImage("https://www.tapdoanhonguyen.com/${img}"),
           ),
           Positioned(
             right: -16,
